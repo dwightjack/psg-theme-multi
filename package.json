@@ -1,0 +1,29 @@
+{
+  "name": "psg-theme-multi",
+  "version": "1.0.0",
+  "description": "postcss-style-guide multi-file theme",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dwightjack/psg-theme-multi.git"
+  },
+  "keywords": [
+    "psg-theme",
+    "style-guide",
+    "postcss"
+  ],
+  "author": "Marco Solazzi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dwightjack/psg-theme-multi/issues"
+  },
+	"homepage": "https://github.com/dwightjack/psg-theme-multi#readme",
+	"devDependencies": {
+		"eslint": "3.19.0",
+    "eslint-config-airbnb-base": "11.2.0",
+    "eslint-plugin-import": "2.7.0"
+	}
+}
