@@ -1,0 +1,336 @@
+<!doctype html>
+<html class="psg-theme" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="format-detection" content="telephone=no">
+    <title><%= projectName %></title>
+    <style>
+        /**
+ * prism.js default theme for JavaScript, CSS and HTML
+ * Based on dabblet (http://dabblet.com)
+ * @author Lea Verou
+ */
+
+        code[class*="language-"],
+        pre[class*="language-"] {
+            color: black;
+            background: none;
+            text-shadow: 0 1px white;
+            font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+            text-align: left;
+            white-space: pre;
+            word-spacing: normal;
+            word-break: normal;
+            word-wrap: normal;
+            line-height: 1.5;
+
+            -moz-tab-size: 4;
+            -o-tab-size: 4;
+            tab-size: 4;
+
+            -webkit-hyphens: none;
+            -moz-hyphens: none;
+            -ms-hyphens: none;
+            hyphens: none;
+        }
+
+        pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection,
+        code[class*="language-"]::-moz-selection, code[class*="language-"] ::-moz-selection {
+            text-shadow: none;
+            background: #b3d4fc;
+        }
+
+        pre[class*="language-"]::selection, pre[class*="language-"] ::selection,
+        code[class*="language-"]::selection, code[class*="language-"] ::selection {
+            text-shadow: none;
+            background: #b3d4fc;
+        }
+
+        @media print {
+            code[class*="language-"],
+            pre[class*="language-"] {
+                text-shadow: none;
+            }
+        }
+
+        /* Code blocks */
+        pre[class*="language-"] {
+            padding: 1em;
+            margin: .5em 0;
+            overflow: auto;
+        }
+
+        :not(pre) > code[class*="language-"],
+        pre[class*="language-"] {
+            background: #f5f2f0;
+        }
+
+        /* Inline code */
+        :not(pre) > code[class*="language-"] {
+            padding: .1em;
+            border-radius: .3em;
+            white-space: normal;
+        }
+
+        .token.comment,
+        .token.prolog,
+        .token.doctype,
+        .token.cdata {
+            color: slategray;
+        }
+
+        .token.punctuation {
+            color: #999;
+        }
+
+        .namespace {
+            opacity: .7;
+        }
+
+        .token.property,
+        .token.tag,
+        .token.boolean,
+        .token.number,
+        .token.constant,
+        .token.symbol,
+        .token.deleted {
+            color: #905;
+        }
+
+        .token.selector,
+        .token.attr-name,
+        .token.string,
+        .token.char,
+        .token.builtin,
+        .token.inserted {
+            color: #690;
+        }
+
+        .token.operator,
+        .token.entity,
+        .token.url,
+        .language-css .token.string,
+        .style .token.string {
+            color: #a67f59;
+            background: hsla(0, 0%, 100%, .5);
+        }
+
+        .token.atrule,
+        .token.attr-value,
+        .token.keyword {
+            color: #07a;
+        }
+
+        .token.function {
+            color: #DD4A68;
+        }
+
+        .token.regex,
+        .token.important,
+        .token.variable {
+            color: #e90;
+        }
+
+        .token.important,
+        .token.bold {
+            font-weight: bold;
+        }
+        .token.italic {
+            font-style: italic;
+        }
+
+        .token.entity {
+            cursor: help;
+        }
+
+    </style>
+    <style><%- tmplStyle %></style>
+
+    <script src="/assets/vendors/modernizr/modernizr.js"></script>
+</head>
+
+<body>
+    <div class="psg-wrapper">
+        <nav class="psg-menu">
+            <a href="" class="psg-logo">
+                <img
+                    title="Carrefour"
+                    src="/assets/images/styleguide/logo-square.png">
+            </a>
+
+            <ul class="psg-ComponentList">
+                <% if (maps.list.length > 1) { %>
+                    <% maps.list.forEach((map) => { %>
+                    <li>
+                        <a href="./<%= map.id %>.html" class="psg-ComponentList__item">
+                            <%= map.title %>
+                        </a>
+                        <% if (maps.root.id === map.id) { %>
+                        <ul>
+                            <% if (map.id === 'index' && Array.isArray(colorPalette) && colorPalette.length !== 0) { %>
+                            <li>
+                                <a href="#color-palette" class="psg-ComponentList__item">
+                                    Color Palette
+                                </a>
+                            </li>
+                            <% } %>
+                            <% map.nodes.filter((m) => !!m.link.title).forEach((node) => { %>
+                            <li>
+                                <a href="#<%= node.link.id %>" class="psg-ComponentList__item">
+                                    - <%= node.link.title %>
+                                </a>
+                            </li>
+                            <% }); %>
+                        </ul>
+                        <% } %>
+                    </li>
+                    <% }) %>
+                <% } else { %>
+                    <% if (Array.isArray(colorPalette) && colorPalette.length !== 0) { %>
+                    <li>
+                        <a href="#color-palette" class="psg-ComponentList__item">
+                            Color Palette
+                        </a>
+                    </li>
+                    <% } %>
+                    <% maps.root.nodes.filter((m) => !!m.link.title).forEach((node) => { %>
+                    <li>
+                        <a href="#<%= node.link.id %>" class="psg-ComponentList__item">
+                            <%= node.link.title %>
+                        </a>
+                    </li>
+                    <% }); %>
+                <% } %>
+
+            </ul>
+
+        </nav>
+
+        <div class="psg-main">
+            <header class="psg-title">
+                <h1><%= projectName %></h1>
+            </header>
+
+            <div class="psg-container">
+                <% if (maps.root) { %>
+                    <h2 class="psg-component-root"><%= maps.root.title %></h2>
+                    <section class="psg-section psg-section--intro">
+                        <div class="psg-contents">
+                            <%- maps.root.html %>
+                        </div>
+                    </section>
+                    <hr class="psg-separator">
+                <% } %>
+                <% if (Array.isArray(colorPalette) && colorPalette.length !== 0) { %>
+                    <section class="psg-section">
+                        <h2 id="color-palette" class="psg-component-title">Color Palette</h2>
+                        <div class="psg-contents">
+                            <div class="psg-colorPalette">
+                                <% colorPalette.forEach(function (palette) { %>
+                                <div class="psg-colorBox">
+                                    <div class="psg-colorBox__sample" style="background-color: <%= palette.color %>">
+                                    </div>
+                                    <div class="psg-colorBox__name">
+                                        <%= palette.name %> (<code><%= palette.color %></code>)
+                                    </div>
+                                </div>
+                                <% }) %>
+                            </div>
+                        </div>
+                    </section>
+                    <hr class="psg-separator">
+                <% } %>
+                <% maps.root.nodes.forEach((map, i) => { %>
+                    <% if (map.link.title && i !== 0) { %>
+                        <hr class="psg-separator">
+                    <% } %>
+                    <section class="psg-section<%- (map.link.title ? ' psg-section--main' : '') %>" id="<%= map.meta.id %>">
+                        <% if (map.link.title) { %>
+                        <h2 class="psg-component-title"><%= map.link.title %></h2>
+                        <% } %>
+                        <div class="psg-contents">
+                            <% if (map.meta.id) { %>
+                                <%- map.html.replace(/<\/?pre>/g, function (match) {
+                                    if (match === '<pre>') {
+                                        return '<div class="psg-framewrap">'
+                                            + '<button class="psg-frame-reload" aria-controls="psg-' + map.meta.id + '">rerun</button>'
+                                            + '<iframe src="./examples/_' + map.meta.id + '.html" class="psg-example-frame" id="psg-' + map.meta.id + '" frameborder="0"></iframe></div>'
+                                            + '<div class="psg-pre"><span>Code</span><pre>';
+                                    }
+                                    return '</pre></div>';
+                                }) %>
+                            <% } else { %>
+                                <%- map.html %>
+                            <% } %>
+                        </div>
+                    </section>
+                <% }) %>
+                <hr class="psg-separator">
+            </div>
+        </div>
+
+    </div>
+
+    <script src="/assets/vendors/jquery/dist/jquery.js"></script>
+    <script>
+        (function($) {
+
+            function adjustHeight($iframe) {
+                var $contents = $iframe.contents();
+                var $wrap = $contents.find('.psg-code-wrap');
+
+                setTimeout(function () {
+                    window.requestAnimationFrame(function () {
+                        var h = $wrap.height();
+                        $iframe.height(h + 50);
+                    });
+                }, 600)
+            }
+
+            $('.psg-framewrap iframe').each(function (i, iframe) {
+                var $iframe = $(iframe);
+
+                $(iframe.contentWindow.document).ready(function () {
+                    window.requestAnimationFrame(function () {
+                        adjustHeight($iframe);
+                    });
+                    $iframe.closest('.psg-framewrap').addClass('is-rendered');
+                });
+
+            })
+//
+
+            $(document).on('click', '.psg-framewrap button', function () {
+                var $iframe = $(document.getElementById($.attr(this, 'aria-controls')))
+                var $wrap = $iframe.closest('.psg-framewrap');
+
+                $wrap.removeClass('is-rendered');
+
+                $iframe.one('load', function () {
+                    window.requestAnimationFrame(function () {
+                        adjustHeight($iframe);
+                    });
+                    $wrap.addClass('is-rendered');
+                });
+                $iframe[0].contentWindow.location.reload(true);
+            });
+
+
+            var $menuItems = $('.psg-menu a');
+            $(window).on('load hashchange', function() {
+                var hash = location.hash;
+                $menuItems
+                    .filter('.is-current')
+                    .removeClass('is-current')
+                .end().filter('[href="' + hash + '"]').addClass('is-current');
+            });
+//
+            $('.psg-contents .psg-pre > span').on('click', function (e) {
+                $(this).parent().toggleClass('is-pre-open');
+            });
+
+        }(jQuery))
+    </script>
+</body>
+</html>
