@@ -4,8 +4,8 @@
   "description": "postcss-style-guide multi-file theme",
   "main": "index.js",
   "scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1",
-		"lint": "eslint lib index.js"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint lib index.js"
   },
   "repository": {
     "type": "git",
@@ -21,10 +21,17 @@
   "bugs": {
     "url": "https://github.com/dwightjack/psg-theme-multi/issues"
   },
-	"homepage": "https://github.com/dwightjack/psg-theme-multi#readme",
+  "homepage": "https://github.com/dwightjack/psg-theme-multi#readme",
   "devDependencies": {
     "eslint": "4.5.0",
     "eslint-config-airbnb-base": "11.3.2",
     "eslint-plugin-import": "2.7.0"
+  },
+  "dependencies": {
+    "marked": "0.3.6",
+    "prismjs": "1.6.0"
+  },
+  "peerDependencies": {
+    "postcss-style-guide": "0.14.0"
   }
 }

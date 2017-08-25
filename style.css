@@ -507,38 +507,6 @@ ul {
     outline: none !important;
 }
 
-@font-face {
-    font-family: "Museo Sans";
-    src: url("/assets/fonts/museosans/museosans_500-webfont.woff2") format("woff2"),
-        url("/assets/fonts/museosans/museosans_500-webfont.woff") format("woff");
-    font-weight: 500;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: "Museo Sans";
-    src: url("/assets/fonts/museosans/museosans_700-webfont.woff2") format("woff2"),
-        url("/assets/fonts/museosans/museosans_700-webfont.woff") format("woff");
-    font-weight: 700;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: "Museo Sans";
-    src: url("/assets/fonts/museosans/museosans_900-webfont.woff2") format("woff2"),
-        url("/assets/fonts/museosans/museosans_900-webfont.woff") format("woff");
-    font-weight: 900;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: "Museo Sans";
-    src: url("/assets/fonts/museosans/museosans-300-webfont.woff2") format("woff2"),
-        url("/assets/fonts/museosans/museosans-300-webfont.woff") format("woff");
-    font-weight: 300;
-    font-style: normal;
-}
-
 html.psg-theme {
     font-size: 62.5%;
 }
@@ -622,9 +590,9 @@ p[id] {
     display: -ms-flexbox;
     display: flex;
     height: 100%;
-    color: #404040;
-    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
     font-size: 1.6rem;
+    font-family: Arial,ヒラギノ角ゴ Pro W3,Hiragino Kaku Gothic Pro,Osaka,メイリオ,Meiryo,ＭＳ\ Ｐゴシック,MS PGothic,sans-serif;
+	color: #444;
     line-height: 1.5;
 }
 
@@ -699,11 +667,10 @@ p[id] {
 
 .psg-title {
     padding: 40px 60px;
-    background-color: #254f9a;
+    background-color: #e23b00;
     color: #fff;
-    font-family: "Museo Sans", sans-serif;
     font-size: 2rem;
-    font-weight: 900;
+    font-weight: bold;
     text-align: center;
 }
 
@@ -714,8 +681,7 @@ p[id] {
 .psg-component-root {
     margin: -2rem 0;
     padding: 1rem 0;
-    color: #254f9a;
-    font-family: "Museo Sans", sans-serif;
+    color: #3f526b;
     font-size: 3.2rem;
     font-weight: bold;
     line-height: 1.6;
@@ -741,8 +707,7 @@ p[id] {
 
 .psg-component-title.psg-component-title {
     margin: 2rem 0 1rem;
-    color: #254f9a;
-    font-family: "Museo Sans", sans-serif;
+    color: #3f526b;
     font-size: 3.2rem;
     font-weight: 700;
     line-height: 1.6;
@@ -794,8 +759,7 @@ p[id] {
 }
 
 .psg-contents > h2 {
-    color: #254f9a;
-    font-family: "Museo Sans", sans-serif;
+    color: #3f526b;
     font-size: 2.2rem;
     font-weight: 700;
 }
@@ -812,8 +776,7 @@ p[id] {
 }
 
 .psg-contents > h3 {
-    color: #254f9a;
-    font-family: "Museo Sans", sans-serif;
+    color: #3f526b;
     font-weight: 700;
 }
 
