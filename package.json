@@ -23,9 +23,12 @@
   },
   "homepage": "https://github.com/dwightjack/psg-theme-multi#readme",
   "devDependencies": {
+    "css-annotation": "0.6.2",
     "eslint": "4.5.0",
     "eslint-config-airbnb-base": "11.3.2",
-    "eslint-plugin-import": "2.7.0"
+    "eslint-plugin-import": "2.7.0",
+    "mkdirp": "0.5.1",
+    "postcss": "6.0.10"
   },
   "dependencies": {
     "marked": "0.3.6",

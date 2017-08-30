@@ -24,22 +24,22 @@
             </a>
 
             <ul class="psg-ComponentList">
-                <% if (maps.list.length > 1) { %>
-                    <% maps.list.forEach((map) => { %>
+                <% if (pages.length > 1) { %>
+                    <% pages.forEach((p) => { %>
                     <li>
-                        <a href="./<%= map.id %>.html" class="psg-ComponentList__item">
-                            <%= map.title %>
+                        <a href="./<%= p.id %>.html" class="psg-ComponentList__item">
+                            <%= p.title %>
                         </a>
-                        <% if (maps.root.id === map.id) { %>
+                        <% if (page.id === p.id) { %>
                         <ul>
-                            <% if (map.id === 'index' && Array.isArray(colorPalette) && colorPalette.length !== 0) { %>
+                            <% if (p.id === 'index' && Array.isArray(colorPalette) && colorPalette.length !== 0) { %>
                             <li>
                                 <a href="#color-palette" class="psg-ComponentList__item">
                                     Color Palette
                                 </a>
                             </li>
                             <% } %>
-                            <% map.nodes.filter((m) => !!m.link.title).forEach((node) => { %>
+                            <% p.nodes.filter((m) => !!m.link.title).forEach((node) => { %>
                             <li>
                                 <a href="#<%= node.link.id %>" class="psg-ComponentList__item">
                                     - <%= node.link.title %>
@@ -58,7 +58,7 @@
                         </a>
                     </li>
                     <% } %>
-                    <% maps.root.nodes.filter((m) => !!m.link.title).forEach((node) => { %>
+                    <% maps.filter((m) => !!m.link.title).forEach((node) => { %>
                     <li>
                         <a href="#<%= node.link.id %>" class="psg-ComponentList__item">
                             <%= node.link.title %>
@@ -77,11 +77,11 @@
             </header>
 
             <div class="psg-container">
-                <% if (maps.root) { %>
-                    <h2 class="psg-component-root"><%= maps.root.title %></h2>
+                <% if (page.root) { %>
+                    <h2 class="psg-component-root"><%= page.title %></h2>
                     <section class="psg-section psg-section--intro">
                         <div class="psg-contents">
-                            <%- maps.root.html %>
+                            <%- page.html %>
                         </div>
                     </section>
                     <hr class="psg-separator">
@@ -105,7 +105,7 @@
                     </section>
                     <hr class="psg-separator">
                 <% } %>
-                <% maps.root.nodes.forEach((map, i) => { %>
+                <% page.nodes.forEach((map, i) => { %>
                     <% if (map.link.title && i !== 0) { %>
                         <hr class="psg-separator">
                     <% } %>
