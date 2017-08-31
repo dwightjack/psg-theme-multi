@@ -58,7 +58,7 @@ Example:
 	</ul>
 	```
 	*/
-	.button {
+	.list {
 		display: flex;
 		align-items: center;
 		justify-content: center;

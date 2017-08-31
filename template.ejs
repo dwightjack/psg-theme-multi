@@ -35,7 +35,7 @@
                             <% if (p.id === 'index' && Array.isArray(colorPalette) && colorPalette.length !== 0) { %>
                             <li>
                                 <a href="#color-palette" class="psg-ComponentList__item">
-                                    Color Palette
+                                    - Color Palette
                                 </a>
                             </li>
                             <% } %>
@@ -77,8 +77,8 @@
             </header>
 
             <div class="psg-container">
-                <% if (page.root) { %>
-                    <h2 class="psg-component-root"><%= page.title %></h2>
+                <% if (page.meta.root) { %>
+                    <h2 class="psg-component-root"><%= page.meta.title %></h2>
                     <section class="psg-section psg-section--intro">
                         <div class="psg-contents">
                             <%- page.html %>
@@ -96,7 +96,7 @@
                                     <div class="psg-colorBox__sample" style="background-color: <%= palette.color %>">
                                     </div>
                                     <div class="psg-colorBox__name">
-                                        <%= palette.name %> (<code><%= palette.color %></code>)
+                                        <%= palette.name %> <br/>(<code><%= palette.color %></code>)
                                     </div>
                                 </div>
                                 <% }) %>
@@ -105,6 +105,7 @@
                     </section>
                     <hr class="psg-separator">
                 <% } %>
+				<% if (page.nodes.length > 0) { %>
                 <% page.nodes.forEach((map, i) => { %>
                     <% if (map.link.title && i !== 0) { %>
                         <hr class="psg-separator">
@@ -118,7 +119,8 @@
                                 <%- map.html.replace(/<\/?pre>/g, function (match) {
                                     if (match === '<pre>') {
                                         return '<div class="psg-framewrap">'
-                                            + '<button class="psg-frame-reload" aria-controls="psg-' + map.meta.id + '">rerun</button>'
+                                            + '<div class="btn-wrap"><button class="psg-frame-reload" aria-controls="psg-' + map.meta.id + '">rerun</button>'
+                                            + '<button class="psg-frame-open" aria-controls="psg-' + map.meta.id + '">↗</button></div>'
                                             + '<iframe src="./examples/_' + map.meta.id + '.html" class="psg-example-frame" id="psg-' + map.meta.id + '" frameborder="0"></iframe></div>'
                                             + '<div class="psg-pre"><span>Code</span><pre>';
                                     }
@@ -131,6 +133,7 @@
                     </section>
                 <% }) %>
                 <hr class="psg-separator">
+				<% } %>
             </div>
         </div>
 
@@ -165,7 +168,7 @@
             })
 //
 
-            $(document).on('click', '.psg-framewrap button', function () {
+            $(document).on('click', '.psg-framewrap .psg-frame-reload', function () {
                 var $iframe = $(document.getElementById($.attr(this, 'aria-controls')))
                 var $wrap = $iframe.closest('.psg-framewrap');
 
@@ -178,6 +181,12 @@
                     $wrap.addClass('is-rendered');
                 });
                 $iframe[0].contentWindow.location.reload(true);
+            });
+
+            $(document).on('click', '.psg-framewrap .psg-frame-open', function () {
+                var $iframe = $(document.getElementById($.attr(this, 'aria-controls')))
+
+                window.open($iframe[0].contentWindow.location.href);
             });
 
 
@@ -194,7 +203,7 @@
                 $(this).parent().toggleClass('is-pre-open');
             });
 
-        }(jQuery))
+        }(jQuery));
     </script>
 </body>
 </html>

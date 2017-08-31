@@ -14,7 +14,7 @@ const syntaxHighlighter = {
 
 module.exports.syntaxHighlighter = syntaxHighlighter;
 
-module.exports.config = (options) => (cfg) => {
+module.exports.config = (options, cfg) => {
 
     const o = Object.assign({
         basePath: 'styleguide'
@@ -34,9 +34,9 @@ module.exports.config = (options) => (cfg) => {
             const defaultPath = path.join(basePath, 'index.html');
             if (pluginOpts.from) {
                 const filename = path.basename(pluginOpts.from, '.css');
-                if (filename === 'application') {
-                    return defaultPath;
-                }
+                // if (filename === 'application') {
+                //     return defaultPath;
+                // }
                 return path.join(basePath, `${filename}.html`);
             }
             return defaultPath;

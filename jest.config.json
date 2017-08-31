@@ -1,0 +1,21 @@
+{
+	"verbose": true,
+	"bail": true,
+	"collectCoverageFrom": [
+			"<rootDir>/lib/**/*.js",
+			"<rootDir>/index.js"
+	],
+	"coverageThreshold": {
+			"global": {
+					"statements": 80,
+					"branches": 80,
+					"functions": 80,
+					"lines": 80
+			}
+	},
+	"moduleDirectories": [
+			"node_modules"
+	],
+	"moduleNameMapper": {
+	}
+}

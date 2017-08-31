@@ -4,8 +4,9 @@
   "description": "postcss-style-guide multi-file theme",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "eslint lib index.js"
+    "test": "jest --config ./jest.config.json",
+    "lint": "eslint lib index.js",
+    "demo": "rimraf demo/styleguide && node ./demo/build.js"
   },
   "repository": {
     "type": "git",
@@ -25,17 +26,19 @@
   "devDependencies": {
     "eslint": "4.5.0",
     "eslint-config-airbnb-base": "11.3.2",
-    "eslint-plugin-import": "2.7.0"
+    "eslint-plugin-import": "2.7.0",
+    "jest": "20.0.4",
+    "rimraf": "2.6.1"
   },
   "dependencies": {
     "css-annotation": "0.6.2",
-		"mkdirp": "0.5.1",
-		"postcss": "6.0.10",
     "marked": "0.3.6",
+    "mkdirp": "0.5.1",
+    "postcss": "6.0.10",
     "prismjs": "1.6.0"
   },
   "peerDependencies": {
     "ejs": "2.5.7",
-    "postcss-style-guide": "0.14.0"
+    "postcss-style-guide": "https://github.com/dwightjack/postcss-style-guide/tarball/develop"
   }
 }

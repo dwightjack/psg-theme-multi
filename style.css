@@ -877,18 +877,25 @@ hr.psg-separator {
     visibility: hidden;
 }
 
-.psg-framewrap > button {
+.psg-framewrap .btn-wrap {
     position: absolute;
     top: 0;
     left: 0;
-    display: inline-block;
     visibility: hidden;
+}
+
+.psg-framewrap:hover > .btn-wrap {
+    visibility: visible;
+}
+
+.psg-framewrap .btn-wrap button {
+    display: inline-block;
     padding: 0.2em 0.5em;
     background-color: rgba(78, 78, 78, 0.2);
 }
 
-.psg-framewrap:hover > button {
-    visibility: visible;
+.psg-framewrap .btn-wrap button + button {
+    margin-left: 4px;
 }
 
 .psg-framewrap.is-rendered iframe {

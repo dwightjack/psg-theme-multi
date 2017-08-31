@@ -1,0 +1,84 @@
+/* @start color */
+:root {
+    --red: #e23B00;
+    --blue: #3f526b;
+    --black: #000;
+    --background: #faf8f5;
+}
+/* @end color */
+
+/*
+@styleguide
+@id button
+@title Button
+
+Use the button classes on and `<a>`, `<button>`, `<input>` elements.
+
+```html
+<button class="button" type="button">Default Button</button>
+```
+*/
+
+.button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+
+/*
+@styleguide
+@id button--large
+
+## Large Button
+
+_If `@title` is omitted the entry won't show on sidebars and lists
+
+```html
+<button class="button button--large">Large Button</button>
+```
+*/
+
+.button--large {
+    width: 140px;
+    height: 40px;
+    font-size: 14px;
+}
+
+
+
+/*
+@styleguide
+@id button--red
+
+## Red Button
+
+```html
+<button class="button button--red">Red Button</button>
+```
+*/
+
+.button--red {
+    color: #fff;
+    background-color: var(--red);
+}
+
+
+
+/*
+@styleguide
+@id button--blue
+
+## Blue Button
+
+```html
+<button class="button button--red">Blue Button</button>
+```
+*/
+
+.button--blue {
+    color: #fff;
+    background-color: var(--blue);
+}
