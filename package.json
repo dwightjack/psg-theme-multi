@@ -23,19 +23,19 @@
   },
   "homepage": "https://github.com/dwightjack/psg-theme-multi#readme",
   "devDependencies": {
-    "css-annotation": "0.6.2",
     "eslint": "4.5.0",
     "eslint-config-airbnb-base": "11.3.2",
-    "eslint-plugin-import": "2.7.0",
-    "mkdirp": "0.5.1",
-    "postcss": "6.0.10"
+    "eslint-plugin-import": "2.7.0"
   },
   "dependencies": {
+    "css-annotation": "0.6.2",
+		"mkdirp": "0.5.1",
+		"postcss": "6.0.10",
     "marked": "0.3.6",
     "prismjs": "1.6.0"
   },
   "peerDependencies": {
-    "ejs": "^2.5.7",
+    "ejs": "2.5.7",
     "postcss-style-guide": "0.14.0"
   }
 }
